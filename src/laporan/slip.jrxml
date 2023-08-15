@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="26a3661a-65b5-4189-b7ea-78620f26c077">
+	<property name="ireport.zoom" value="1.3310000000000004"/>
+	<property name="ireport.x" value="19"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="id" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="bulan" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tahun" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="adm" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="today" class="java.lang.String"/>
+	<parameter name="logo" class="java.lang.Object"/>
+	<queryString>
+		<![CDATA[SELECT
+     rekap_gaji.`id_rg` AS rekap_gaji_id_rg,
+     rekap_gaji.`id_karyawan` AS rekap_gaji_id_karyawan,
+     rekap_gaji.`bulan_gaji` AS rekap_gaji_bulan_gaji,
+     rekap_gaji.`tahun_gaji` AS rekap_gaji_tahun_gaji,
+     rekap_gaji.`tanggal_gaji` AS rekap_gaji_tanggal_gaji,
+     karyawan.`nama_karyawan` AS karyawan_nama_karyawan,
+     karyawan.`status` AS karyawan_status,
+     jabatan.`nama_jabatan` AS jabatan_nama_jabatan,
+     karyawan.`id_tunjangan` AS karyawan_id_tunjangan,
+     karyawan.`masa` AS karyawan_masa,
+     rekap_gaji.`t_tukin` AS rekap_gaji_t_tukin,
+     rekap_gaji.`t_gapok` AS rekap_gaji_t_gapok,
+     rekap_gaji.`t_kesra` AS rekap_gaji_t_kesra,
+     rekap_gaji.`t_sehat` AS rekap_gaji_t_sehat,
+     rekap_gaji.`t_beras` AS rekap_gaji_t_beras,
+     rekap_gaji.`t_transport` AS rekap_gaji_t_transport,
+     rekap_gaji.`t_gaji` AS rekap_gaji_t_gaji
+FROM
+     `karyawan` karyawan INNER JOIN `rekap_gaji` rekap_gaji ON karyawan.`id_karyawan` = rekap_gaji.`id_karyawan`
+     INNER JOIN `jabatan` jabatan ON karyawan.`id_jabatan` = jabatan.`id_jabatan`
+WHERE
+     karyawan.id_karyawan = '$P!{id}'
+     and rekap_gaji.bulan_gaji = '$P!{bulan}'
+     and rekap_gaji.tahun_gaji = '$P!{tahun}']]>
+	</queryString>
+	<field name="rekap_gaji_id_rg" class="java.lang.String"/>
+	<field name="rekap_gaji_id_karyawan" class="java.lang.String"/>
+	<field name="rekap_gaji_bulan_gaji" class="java.lang.String"/>
+	<field name="rekap_gaji_tahun_gaji" class="java.lang.String"/>
+	<field name="rekap_gaji_tanggal_gaji" class="java.sql.Date"/>
+	<field name="karyawan_nama_karyawan" class="java.lang.String"/>
+	<field name="karyawan_status" class="java.lang.String"/>
+	<field name="jabatan_nama_jabatan" class="java.lang.String"/>
+	<field name="karyawan_id_tunjangan" class="java.lang.String"/>
+	<field name="karyawan_masa" class="java.lang.Integer"/>
+	<field name="rekap_gaji_t_tukin" class="java.lang.Double"/>
+	<field name="rekap_gaji_t_gapok" class="java.lang.Double"/>
+	<field name="rekap_gaji_t_kesra" class="java.lang.Double"/>
+	<field name="rekap_gaji_t_sehat" class="java.lang.Double"/>
+	<field name="rekap_gaji_t_beras" class="java.lang.Double"/>
+	<field name="rekap_gaji_t_transport" class="java.lang.Double"/>
+	<field name="rekap_gaji_t_gaji" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="92" splitType="Stretch">
+			<staticText>
+				<reportElement x="242" y="46" width="405" height="20" uuid="3b4478a0-7d9d-4320-bfef-06a1ebdfad44"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Kota Jakarta Timur, DKI Jakarta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="242" y="30" width="405" height="20" uuid="22f91e21-0385-472b-8242-933e468f64aa"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Jl. Anyelir Cijantung II, Kelurahan Gedong,  Kecamatan Pasar Rebo]]></text>
+			</staticText>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="134" y="0" width="108" height="81" uuid="b61037bf-c60b-401b-95a4-a6caeab7cb8d"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="305" y="-5" width="252" height="41" uuid="7bd080bd-1ee5-4592-be1f-e1e5738d66b6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="26" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SDS Kartika VIII - 1]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="86" width="802" height="1" forecolor="#000000" uuid="d2d74b70-4c5b-4b60-bed8-35a17ba3697c"/>
+				<graphicElement>
+					<pen lineWidth="4.5"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="242" y="61" width="405" height="20" uuid="1f980ee2-0516-4d00-9f3e-bc1404d28f78"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Telp: 021-8410318 Email: sdkartikacijantung@yahoo.com]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="44" splitType="Stretch">
+			<staticText>
+				<reportElement x="269" y="1" width="257" height="20" uuid="bc76c948-77a6-4aa2-bd05-2ce4d372c06b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Slip Gaji]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="271" y="21" width="255" height="20" uuid="0105df95-6845-4209-8951-8f5747dc59ee"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Nomor Gaji: "+$F{rekap_gaji_id_rg}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="83" splitType="Stretch">
+			<staticText>
+				<reportElement x="23" y="21" width="100" height="20" uuid="16f29567-b492-4b51-9e67-b8a23711f838"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Nama Karyawan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="23" y="41" width="100" height="20" uuid="042e5aee-75ef-41ae-86ac-5f5e0804ea82"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Jabatan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="23" y="61" width="100" height="20" uuid="fe552923-b7d7-447c-808d-93fb82c7b007"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Masa Kerja]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="545" y="61" width="100" height="20" uuid="92b8dd8e-22f6-47fb-96c6-cef1d447b39c"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Status]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="146" y="21" width="100" height="20" uuid="7b98f3e9-12ac-488b-a80c-8a3690ca8d89"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{karyawan_nama_karyawan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="668" y="61" width="100" height="20" uuid="1237bd16-a3d9-45c1-bcc0-45872524dec1"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{karyawan_status}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="146" y="41" width="100" height="20" uuid="7f168af1-5152-43de-b945-a5960d14c74a"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jabatan_nama_jabatan}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd-MM-yyyy">
+				<reportElement x="668" y="41" width="100" height="20" uuid="2e4069f2-baf1-481f-96e3-3eb9292ba17f"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rekap_gaji_tanggal_gaji}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="545" y="41" width="100" height="20" uuid="7f58b26e-1534-426a-9892-614986e9b933"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Tanggal Gaji]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="545" y="21" width="100" height="20" uuid="031d1847-dc40-4e90-aff7-bdcf9d342c9b"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Tahun]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="545" y="1" width="100" height="20" uuid="8fa6f78b-0983-4fa1-ab74-43e7a7dafb75"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Bulan]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="668" y="1" width="100" height="20" uuid="3ec56f76-92bb-41a9-92b0-36eead844b77"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rekap_gaji_bulan_gaji}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="668" y="21" width="100" height="20" uuid="6d2503fb-6e1d-48ef-8abf-e7a3534e7169"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rekap_gaji_tahun_gaji}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="23" y="1" width="100" height="20" uuid="5311cf5f-fc5b-492e-9ac1-e5f028dc38ee"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[ID Karyawan]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="146" y="1" width="100" height="20" uuid="25d0d18f-508f-4b85-8dab-446773ee7ebf"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rekap_gaji_id_karyawan}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="123" y="1" width="23" height="20" uuid="0b54bc9d-d4eb-491f-b5be-018bc9c9397c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="123" y="21" width="23" height="20" uuid="af85e085-1698-4b6a-82f0-b2cbf793dfcc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="123" y="41" width="23" height="20" uuid="5c00b216-a054-4a50-a725-52de068ea475"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="123" y="61" width="23" height="20" uuid="f104bb40-2449-4f60-8ca9-d0b3591a1f41"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="645" y="1" width="23" height="20" uuid="ed7135b3-0692-4b34-8aa9-c4ae48d9ba93"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="645" y="21" width="23" height="20" uuid="214c1ff7-9ece-4d3d-9620-5e9762c6eb24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="645" y="41" width="23" height="20" uuid="94531f69-29b3-4469-afeb-89a15fb9966b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="645" y="61" width="23" height="20" uuid="16f38632-c4d4-4f7d-b8ea-32fc478d8211"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="146" y="61" width="100" height="20" uuid="bc64e383-24eb-409a-a942-fe07bbee2e9c"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{karyawan_masa}+" Tahun"]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="327">
+			<textField pattern="Rp #,##0.00">
+				<reportElement x="415" y="40" width="100" height="20" uuid="97f1057f-ddc4-4fd6-9d88-af021b393e36"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rekap_gaji_t_gapok}]]></textFieldExpression>
+			</textField>
+			<textField pattern="Rp #,##0.00">
+				<reportElement x="415" y="60" width="100" height="20" uuid="9cd5680a-c82f-4018-bc66-0b9aa7f05c95"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rekap_gaji_t_tukin}]]></textFieldExpression>
+			</textField>
+			<textField pattern="Rp #,##0.00">
+				<reportElement x="415" y="80" width="100" height="20" uuid="f9590096-d298-4d38-bacb-8bbb54bc103a"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rekap_gaji_t_kesra}]]></textFieldExpression>
+			</textField>
+			<textField pattern="Rp #,##0.00">
+				<reportElement x="415" y="100" width="100" height="20" uuid="ab11443a-aa5d-4062-b756-6506f1c3e38f"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rekap_gaji_t_sehat}]]></textFieldExpression>
+			</textField>
+			<textField pattern="Rp #,##0.00">
+				<reportElement x="415" y="120" width="100" height="20" uuid="cb07a666-8347-4692-81f9-5254aa3ce529"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rekap_gaji_t_transport}]]></textFieldExpression>
+			</textField>
+			<textField pattern="Rp #,##0.00">
+				<reportElement x="415" y="140" width="100" height="20" uuid="3103346d-05a4-49ab-8359-7e0e7338c855"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rekap_gaji_t_beras}]]></textFieldExpression>
+			</textField>
+			<textField pattern="Rp #,##0.00">
+				<reportElement x="394" y="173" width="185" height="20" uuid="a10513c6-cfd5-4b4d-b5f8-5a86a9bcc9d7"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rekap_gaji_t_gaji}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="271" y="40" width="100" height="20" uuid="3d895f7b-6465-40c6-9bb3-d94066a111db"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Total Gaji Pokok]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="271" y="60" width="100" height="20" uuid="b320426d-f0d4-47ba-81db-1c758b2bcb93"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Total Tukin]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="271" y="80" width="100" height="20" uuid="b4b8c184-4d93-4d56-8d4c-1ba09b950d89"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Tunjangan Kesra]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="271" y="100" width="123" height="20" uuid="ba1a3501-4aae-4d2f-9833-dbb1cb16be69"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Tunjangan Kesehatan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="271" y="120" width="137" height="20" uuid="898818af-c161-4897-9478-c678e56e6c7c"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Tunjangan Transportasi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="271" y="140" width="100" height="20" uuid="bcd89653-16d8-4f77-9315-9d65cdd4978b"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Tunjangan Beras]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="304" y="173" width="104" height="20" uuid="27e898e8-da78-40f5-94da-bb92909b9860"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Total Gaji]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="173" width="802" height="1" forecolor="#000000" uuid="7b261bba-df8a-48eb-aac0-f93367b6943e"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="0" y="193" width="802" height="1" forecolor="#000000" uuid="4c3346aa-570b-4c78-9663-372f96560d24"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="579" y="281" width="222" height="20" uuid="e8d51253-f094-4999-ad4f-d1087ba0294d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{adm}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="46" y="215" width="139" height="20" uuid="76fdf333-5aab-4d96-aaf6-e48f01a0e0af"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Penerima,]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="46" y="281" width="139" height="20" uuid="40d46bbf-9373-483f-b571-07d7ef25a3f8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{karyawan_nama_karyawan}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="271" y="6" width="244" height="20" uuid="3fb0e5db-5b69-43fb-8d5a-773a56fee9e7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pendapatan]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="26" width="802" height="1" forecolor="#000000" uuid="4a5638d8-ff10-4533-b667-4a800b1766d7"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="0" y="5" width="802" height="1" forecolor="#000000" uuid="039d3c10-fd0d-4689-a2a8-890376f010be"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="579" y="215" width="223" height="20" uuid="3fadb91b-5ba0-45fd-83d3-c8928be74bf0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Jakarta, "+$P{today}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="579" y="301" width="222" height="20" uuid="7e445dc5-7561-4ba5-82c7-b2cca822886b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Tata Usaha]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>
